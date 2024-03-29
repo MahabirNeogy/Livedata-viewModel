@@ -1,19 +1,25 @@
 package com.example.livedata_viewmodel.Viewmodel
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class MainViewModel: ViewModel() {
 
-    var text1= MutableLiveData<String>()
-    var text2= MutableLiveData<String>()
+    private var _text1= MutableLiveData<String>()
+    private var _text2= MutableLiveData<String>()
+
+    val text1: LiveData<String>
+        get()=_text1
+    val text2: LiveData<String>
+        get() = _text2
     init{
-        text1.value="jfduvd"
-        text2.value="fgdfhfhb"
+        _text1.value="jfduvd"
+        _text2.value="fgdfhfhb"
     }
 
     fun updateText() {
-        text1.value="Hello"
-        text2.value="World"
+        _text1.value="Hello"
+        _text2.value="World"
     }
 }
